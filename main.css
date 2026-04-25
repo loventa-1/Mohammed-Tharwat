@@ -1,0 +1,473 @@
+/* ---------- GLOBAL VARIABLES (Ocean Breeze Edition) ---------- */
+:root {
+  /* Backgrounds - Soft & Airy like beach sand */
+  --bg-champagne: #e8f4f8;
+  --bg-soft-white: #f0f7fa;
+  --card-bg: rgba(255, 255, 255, 0.92);
+
+  /* Typography Colors - Deep ocean & warm sand */
+  --midnight-navy: #2c5f6e;
+  --soft-charcoal: #4a6f7a;
+  --dusty-rose: #f4a261;
+  --dusty-rose-light: #f7c9a8;
+  --gold-accent: #7ab3c8;
+
+  /* Borders & Shadows */
+  --shadow-soft: 0 20px 35px -12px rgba(44, 95, 110, 0.12);
+  --border-light: 1px solid rgba(44, 95, 110, 0.1);
+
+  /* Font families */
+  --font-serif: "Playfair Display", "Amiri", Georgia, serif;
+  --font-sans: "Inter", "Cairo", system-ui, sans-serif;
+  --font-arabic: "Amiri", "Cairo", serif;
+
+  /* transitions */
+  --transition-romantic: all 0.25s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-champagne);
+  font-family: var(--font-sans);
+  color: var(--soft-charcoal);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* main wrapper */
+.invitation-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--bg-champagne);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+/* subtle wave texture overlay */
+.invitation-wrapper::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at 20% 40%,
+    rgba(122, 179, 200, 0.06) 2%,
+    transparent 2.5%
+  );
+  background-size: 35px 35px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- HOOK SCREEN ---------- */
+.hook-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-champagne);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.6s ease;
+  cursor: pointer;
+}
+
+.hook-content {
+  text-align: center;
+  animation: gentleFloat 2.2s infinite ease;
+  padding: 2rem;
+}
+
+.hook-content h1 {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  font-weight: 600;
+  color: var(--midnight-navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 6px rgba(44, 95, 110, 0.08);
+  line-height: 1.8;
+}
+
+.tap-btn {
+  background: transparent;
+  border: 1.5px solid var(--midnight-navy);
+  padding: 14px 44px;
+  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--midnight-navy);
+  border-radius: 48px;
+  cursor: pointer;
+  transition: var(--transition-romantic);
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.tap-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+.tap-btn:hover {
+  border-color: var(--dusty-rose);
+  background: rgba(244, 162, 97, 0.12);
+  color: var(--dusty-rose);
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(244, 162, 97, 0.15);
+}
+
+@keyframes gentleFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ---------- MAIN INVITATION CARD ---------- */
+.main-card {
+  max-width: 780px;
+  width: 94%;
+  margin: 1rem auto;
+  background: var(--card-bg);
+  border-radius: 42px;
+  box-shadow: var(--shadow-soft);
+  border: var(--border-light);
+  overflow: hidden;
+  padding: 2.2rem 2rem 2.8rem;
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.1),
+    transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(28px);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+}
+
+.main-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* quran verse */
+.quran-section {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.9s ease forwards;
+}
+
+.quran-verse {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 700;
+  color: var(--midnight-navy);
+  letter-spacing: -0.01em;
+  margin: 0.5rem 0;
+  line-height: 1.8;
+}
+
+.heart-icon {
+  font-size: 1.5rem;
+  color: var(--dusty-rose);
+  margin: 0 0.4rem;
+  display: inline-block;
+  animation: heartBeat 1.8s infinite ease;
+}
+
+.title-message {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: var(--dusty-rose);
+  margin-top: 0.2rem;
+}
+
+/* date block */
+.date-block {
+  background: rgba(44, 95, 110, 0.04);
+  border-radius: 64px;
+  padding: 1rem 1.8rem;
+  margin: 1.4rem 0;
+  text-align: center;
+  border: 1px solid rgba(44, 95, 110, 0.08);
+  transition: var(--transition-romantic);
+}
+
+.date-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--dusty-rose);
+  font-weight: 600;
+  font-family: var(--font-sans);
+}
+
+.date-value {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-weight: 500;
+  color: var(--midnight-navy);
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.date-value i {
+  color: var(--gold-accent);
+  font-size: 1.2rem;
+}
+
+/* timing section */
+.timing-section {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.timing-item {
+  font-family: var(--font-arabic);
+  font-size: 1.2rem;
+  color: var(--midnight-navy);
+  background: rgba(122, 179, 200, 0.08);
+  padding: 0.5rem 1.5rem;
+  border-radius: 32px;
+  border: 1px solid rgba(122, 179, 200, 0.15);
+}
+
+.timing-item i {
+  color: var(--dusty-rose);
+  margin-left: 8px;
+}
+
+/* ========== 🖼️ image frame ========== */
+.image-frame {
+  margin: 2rem 0 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.wedding-img {
+  width: 86%;
+  max-width: 380px;
+  border-radius: 28px;
+  box-shadow: 0 20px 30px -12px rgba(44, 95, 110, 0.15);
+  border: 2px solid rgba(244, 162, 97, 0.3);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.3s;
+  cursor: pointer;
+  animation: imageGlow 1s ease-out;
+  background: linear-gradient(145deg, #d4e8f0, #b8d4df);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* لو هتستخدم صورة حقيقية */
+.wedding-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+.img-placeholder-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.img-placeholder-content i {
+  font-size: 4rem;
+  color: var(--midnight-navy);
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.img-placeholder-content p {
+  font-family: var(--font-arabic);
+  color: var(--midnight-navy);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.wedding-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 35px -12px rgba(244, 162, 97, 0.2);
+}
+
+/* ========== 🗺️ location section ========== */
+.location-section {
+  margin: 1.6rem 0;
+  text-align: center;
+}
+
+.location-btn {
+  background: transparent;
+  border: 1.5px solid var(--midnight-navy);
+  padding: 12px 28px;
+  border-radius: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--midnight-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition-romantic);
+  font-family: var(--font-sans);
+  letter-spacing: 0.5px;
+}
+
+.location-btn i {
+  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+.location-btn:hover {
+  background: rgba(244, 162, 97, 0.1);
+  border-color: var(--dusty-rose);
+  color: var(--dusty-rose);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 162, 97, 0.12);
+}
+
+.location-sub {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: var(--soft-charcoal);
+  font-weight: 400;
+  font-family: var(--font-arabic);
+}
+
+.hall-place {
+  margin-top: 10px;
+  font-family: var(--font-arabic);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--midnight-navy);
+}
+
+/* ending section */
+.ending-section {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(44, 95, 110, 0.08);
+}
+
+.save-date {
+  font-family: var(--font-arabic);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--midnight-navy);
+  letter-spacing: 1px;
+  background: transparent;
+  display: inline-block;
+  padding: 0.3rem 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.see-you {
+  font-size: 1rem;
+  color: var(--soft-charcoal);
+  font-family: var(--font-sans);
+  letter-spacing: 0.5px;
+}
+
+.see-you i {
+  color: var(--dusty-rose);
+  margin: 0 4px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes imageGlow {
+  0% { opacity: 0; transform: scale(0.96); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); color: #f4a261; }
+}
+
+/* music control */
+.music-control {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 60px;
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  color: var(--midnight-navy);
+  border: 1px solid rgba(44, 95, 110, 0.15);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  transition: var(--transition-romantic);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(44, 95, 110, 0.08);
+}
+
+.music-control:hover {
+  background: #ffffff;
+  border-color: var(--dusty-rose);
+  color: var(--dusty-rose);
+  transform: scale(1.02);
+}
+
+/* hidden state */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* responsive */
+@media (max-width: 650px) {
+  .main-card { padding: 1.6rem; }
+  .quran-verse { font-size: 1.6rem; }
+  .timing-section { gap: 1rem; }
+}
+
+/* RTL adjustments */
+[dir="rtl"] .tap-btn i,
+[dir="rtl"] .location-btn i {
+  margin-left: 0;
+  margin-right: 8px;
+}

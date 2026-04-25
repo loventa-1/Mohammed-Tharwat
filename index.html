@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>دعوة زفاف | محمد ثروت</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="invitation-wrapper">
+    
+    <!-- HOOK SCREEN -->
+    <div class="hook-screen" id="hookScreen">
+      <div class="hook-content">
+        <h1>تتشرف عائلة الحاج ثروت<br>بدعوة حضراتكم لحضور<br>وليمة زفاف الاستاذ محمد ثروت</h1>
+        <button class="tap-btn" id="openInvitationBtn">
+          <span>اضغط لفتح الدعوة</span>
+          <i class="fas fa-arrow-left"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN INVITATION CARD -->
+    <div class="main-card" id="mainCard">
+      
+      <!-- Quran Verse -->
+      <div class="quran-section">
+        <div class="quran-verse">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
+        </div>
+        <div class="heart-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+
+      <!-- Date Section -->
+      <div class="date-block">
+        <div class="date-label">تاريخ الزفاف</div>
+        <div class="date-value">
+          <i class="fas fa-calendar-alt"></i>
+          <span>الاثنين الموافق 27 / 4 / 2026</span>
+        </div>
+      </div>
+
+      <!-- Timing -->
+      <div class="timing-section">
+        <div class="timing-item">
+          <i class="fas fa-utensils"></i>
+          <span> الغداء: 1 ظهرًا</span>
+        </div>
+        <div class="timing-item">
+          <i class="fas fa-moon"></i>
+          <span> الحنّة: 6 مساءً</span>
+        </div>
+      </div>
+
+      <!-- ========== 🖼️ مكان الصورة - عدل الرابط هنا ========== -->
+      <div class="image-frame">
+        <div class="wedding-img" id="coupleImage">
+          <!-- لو عاوز تستخدم صورة، استبدل الكود دا بـ <img> -->
+          <div class="img-placeholder-content">
+            <i class="fas fa-crown"></i>
+            <p>أحمد و عروسته</p>
+            <i class="fas fa-heart" style="font-size: 1.5rem; margin-top: 0.5rem; opacity: 0.8;"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== 🗺️ قسم الموقع ========== -->
+      <div class="location-section">
+        <!-- الزرار اللي هينقلك للوكيشن -->
+        <button class="location-btn" id="locationButton">
+          <i class="fas fa-map-pin"></i>
+          <span>موقع الحفل</span>
+        </button>
+        
+        <div class="location-sub">
+          سللنت – أمام مركز شباب سللنت<br>
+          أول طريق طناح – المنصوره
+        </div>
+      </div>
+
+      <!-- Ending Section -->
+      <div class="ending-section">
+        <div class="save-date">
+          ✨ يسعدنا ويشرفنا حضوركم ✨
+        </div>
+        <div class="see-you">
+          <i class="fas fa-star"></i>
+          بانتظاركم في يوم الفرح
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Music Control Button -->
+    <div class="music-control" id="musicControl">
+      <i class="fas fa-volume-up" id="musicIcon"></i>
+      <span id="musicText">إيقاف الموسيقى</span>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
